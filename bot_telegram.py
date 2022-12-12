@@ -13,9 +13,9 @@ from handlers.admin import set_default_commands
 load_dotenv()
 admin.register_handlers_admin(dp)
 
-WEBHOOK_HOST = os.getenv("WEBHOOK_HOST")
+WEBHOOK_HOST = os.getenv('WEBHOOK_HOST')
 WEBHOOK_PATH = '/webhook/{bot}'
-WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
+WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 WEBAPP_HOST = '0.0.0.0'
 WEBAPP_PORT = os.getenv('PORT', default=8000)
 
@@ -27,12 +27,12 @@ logger.addHandler(handler)
 
 
 async def on_startup(_):
-    logger.info("Бот запущен")
+    logger.info('Бот запущен')
     try:
         await bot.set_webhook(WEBHOOK_URL)
         await set_default_commands(dp)
     except Exception:
-        raise ErrorsText("Ошибка Запуска бота")
+        raise ErrorsText('Ошибка Запуска бота')
     sqlite_db.sql_start()
 
 

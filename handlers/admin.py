@@ -106,9 +106,9 @@ def register_handlers_admin(dp: Dispatcher):
     """Регистрируем обработчики команд."""
     dp.register_message_handler(send_welcome, commands=['start'])
     dp.register_message_handler(cm_add, commands=['add'], state=None)
-    dp.register_message_handler(cancel_handler, state="*", commands=['cancel'])
+    dp.register_message_handler(cancel_handler, state='*', commands=['cancel'])
     dp.register_message_handler(cancel_handler, Text(
-        equals='cancel', ignore_case=True), state="*")
+        equals='cancel', ignore_case=True), state='*')
     dp.register_message_handler(add_name, state=FSMAdmin.name)
     dp.register_message_handler(add_description, state=FSMAdmin.description)
     dp.register_message_handler(list_command, commands=['list'])
